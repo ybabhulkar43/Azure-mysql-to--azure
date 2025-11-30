@@ -8,11 +8,20 @@
 		"AzureDataLakeStorage2_accountKey": {
 			"value": ""
 		},
+		"FileSystem_to_Azure_password": {
+			"value": ""
+		},
 		"MySql1_password": {
 			"value": ""
 		},
 		"AzureDataLakeStorage2_properties_typeProperties_url": {
 			"value": "https://yogiietest.dfs.core.windows.net/"
+		},
+		"FileSystem_to_Azure_properties_typeProperties_host": {
+			"value": "C:\\data"
+		},
+		"FileSystem_to_Azure_properties_typeProperties_userId": {
+			"value": "YOGESH"
 		},
 		"HttpServer1_properties_typeProperties_url": {
 			"value": "https://raw.githubusercontent.com/"
