@@ -1,16 +1,16 @@
 {
-	"name": "DelimitedText6",
+	"name": "DelimitedText14",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorage2",
+			"referenceName": "FileSystem_to_Azure",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation",
-				"fileSystem": "transformed-data"
+				"type": "FileServerLocation",
+				"fileName": "accounts.csv"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

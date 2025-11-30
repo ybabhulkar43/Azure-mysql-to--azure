@@ -1,16 +1,16 @@
 {
-	"name": "DelimitedText9",
+	"name": "DelimitedText16",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorage2",
+			"referenceName": "FileSystem_to_Azure",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation",
-				"fileSystem": "transformed-data"
+				"type": "FileServerLocation",
+				"fileName": "products.csv"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
@@ -19,15 +19,15 @@
 		},
 		"schema": [
 			{
-				"name": "Table",
+				"name": "product",
 				"type": "String"
 			},
 			{
-				"name": "Field",
+				"name": "series",
 				"type": "String"
 			},
 			{
-				"name": "Description",
+				"name": "sales_price",
 				"type": "String"
 			}
 		]

@@ -1,9 +1,9 @@
 {
-	"name": "pipeline1",
+	"name": "Filesystem-azure",
 	"properties": {
 		"activities": [
 			{
-				"name": "accounts",
+				"name": "Accounts-Filesystem-azure",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -18,8 +18,9 @@
 					"source": {
 						"type": "DelimitedTextSource",
 						"storeSettings": {
-							"type": "HttpReadSettings",
-							"requestMethod": "GET"
+							"type": "FileServerReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
 							"type": "DelimitedTextReadSettings"
@@ -48,23 +49,23 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DelimitedText3",
+						"referenceName": "DelimitedText14",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DelimitedText4",
+						"referenceName": "DelimitedText15",
 						"type": "DatasetReference"
 					}
 				]
 			},
 			{
-				"name": "data dictionaries",
+				"name": "Products-Filesystem-azure",
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "accounts",
+						"activity": "Accounts-Filesystem-azure",
 						"dependencyConditions": [
 							"Completed"
 						]
@@ -82,8 +83,9 @@
 					"source": {
 						"type": "DelimitedTextSource",
 						"storeSettings": {
-							"type": "HttpReadSettings",
-							"requestMethod": "GET"
+							"type": "FileServerReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
 							"type": "DelimitedTextReadSettings"
@@ -112,23 +114,23 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DelimitedText5",
+						"referenceName": "DelimitedText16",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DelimitedText6",
+						"referenceName": "DelimitedText17",
 						"type": "DatasetReference"
 					}
 				]
 			},
 			{
-				"name": "products",
+				"name": "data_dictionaries",
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "data dictionaries",
+						"activity": "Products-Filesystem-azure",
 						"dependencyConditions": [
 							"Completed"
 						]
@@ -146,8 +148,9 @@
 					"source": {
 						"type": "DelimitedTextSource",
 						"storeSettings": {
-							"type": "HttpReadSettings",
-							"requestMethod": "GET"
+							"type": "FileServerReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
 							"type": "DelimitedTextReadSettings"
@@ -176,23 +179,23 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DelimitedText7",
+						"referenceName": "DelimitedText18",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DelimitedText9",
+						"referenceName": "DelimitedText19",
 						"type": "DatasetReference"
 					}
 				]
 			},
 			{
-				"name": "Sales_pipeline",
+				"name": "Sales-pipeline",
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "products",
+						"activity": "data_dictionaries",
 						"dependencyConditions": [
 							"Completed"
 						]
@@ -210,8 +213,9 @@
 					"source": {
 						"type": "DelimitedTextSource",
 						"storeSettings": {
-							"type": "HttpReadSettings",
-							"requestMethod": "GET"
+							"type": "FileServerReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
 							"type": "DelimitedTextReadSettings"
@@ -240,23 +244,23 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DelimitedText10",
+						"referenceName": "DelimitedText20",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DelimitedText11",
+						"referenceName": "DelimitedText21",
 						"type": "DatasetReference"
 					}
 				]
 			},
 			{
-				"name": "Sales_Team",
+				"name": "Sales-Teams",
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Sales_pipeline",
+						"activity": "Sales-pipeline",
 						"dependencyConditions": [
 							"Completed"
 						]
@@ -274,8 +278,9 @@
 					"source": {
 						"type": "DelimitedTextSource",
 						"storeSettings": {
-							"type": "HttpReadSettings",
-							"requestMethod": "GET"
+							"type": "FileServerReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
 							"type": "DelimitedTextReadSettings"
@@ -304,13 +309,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DelimitedText12",
+						"referenceName": "DelimitedText22",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DelimitedText13",
+						"referenceName": "DelimitedText23",
 						"type": "DatasetReference"
 					}
 				]

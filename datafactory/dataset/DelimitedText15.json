@@ -1,5 +1,5 @@
 {
-	"name": "DelimitedText9",
+	"name": "DelimitedText15",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage2",
@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"folderPath": "FileSystemData",
 				"fileSystem": "transformed-data"
 			},
 			"columnDelimiter": ",",
@@ -17,19 +18,6 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": [
-			{
-				"name": "Table",
-				"type": "String"
-			},
-			{
-				"name": "Field",
-				"type": "String"
-			},
-			{
-				"name": "Description",
-				"type": "String"
-			}
-		]
+		"schema": []
 	}
 }
