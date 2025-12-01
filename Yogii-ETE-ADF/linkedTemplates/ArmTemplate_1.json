@@ -1014,7 +1014,7 @@
 							"headers": {},
 							"url": "https://prod-86.eastus.logic.azure.com:443/workflows/d3b4b0be48fe41449c7016b09ce67528/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=WW2mj3UGHR8p9SvPNQgEPVsdMuo0VO0NzaL2osBHa58",
 							"body": {
-								"value": "{\n    \"PipelineName\" : \"@{pipeline().Pipeline}\"\n    \"status\" : \"success\",\n    \"runId\" : \"@{pipeline().RunId}\"\n    \"time\" : \"@{utcNow()}\"\n}",
+								"value": "{\n    \"PipelineName\": \"@{pipeline().Pipeline}\",\n    \"status\": \"succeed\",\n    \"runId\": \"@{pipeline().RunId}\",\n    \"time\": \"@{utcNow()}\"\n}\n",
 								"type": "Expression"
 							}
 						}
@@ -1043,7 +1043,7 @@
 							"headers": {},
 							"url": "https://prod-86.eastus.logic.azure.com:443/workflows/d3b4b0be48fe41449c7016b09ce67528/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=WW2mj3UGHR8p9SvPNQgEPVsdMuo0VO0NzaL2osBHa58",
 							"body": {
-								"value": "{\n    \"PipelineName\" : \"@{pipeline().Pipeline}\",\n    \"Status\" : \"Failed\",\n    \"runId\" : \"@{pipeline().RunId}\",\n    \"time\" : \"@{utcNow()}\"\n}",
+								"value": "{\n    \"PipelineName\": \"@{pipeline().Pipeline}\",\n    \"status\": \"Failed\",\n    \"runId\": \"@{pipeline().RunId}\",\n    \"time\": \"@{utcNow()}\"\n}\n",
 								"type": "Expression"
 							}
 						}
@@ -1060,6 +1060,36 @@
 				"[concat(variables('factoryId'), '/datasets/DelimitedText18')]",
 				"[concat(variables('factoryId'), '/datasets/DelimitedText20')]",
 				"[concat(variables('factoryId'), '/datasets/DelimitedText22')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "Filesystem-azure",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 5,
+						"startTime": "2025-12-01T03:38:00",
+						"timeZone": "India Standard Time"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/Filesystem-azure')]"
 			]
 		}
 	]
