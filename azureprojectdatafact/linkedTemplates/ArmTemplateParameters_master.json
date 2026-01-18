@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "azureprojectdatafact"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"FileSystem1_password": {
+			"value": ""
+		},
+		"MySql1_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://azureprojectstorageacc.dfs.core.windows.net/"
+		},
+		"FileSystem1_properties_typeProperties_host": {
+			"value": "C:\\data"
+		},
+		"FileSystem1_properties_typeProperties_userId": {
+			"value": "YOGESH"
+		},
+		"MySql1_properties_typeProperties_server": {
+			"value": "localhost"
+		},
+		"MySql1_properties_typeProperties_database": {
+			"value": "sakila"
+		},
+		"MySql1_properties_typeProperties_username": {
+			"value": "root"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
