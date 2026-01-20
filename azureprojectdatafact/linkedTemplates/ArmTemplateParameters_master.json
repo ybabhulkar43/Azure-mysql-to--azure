@@ -14,6 +14,9 @@
 		"MySql1_password": {
 			"value": ""
 		},
+		"FileServer1_password": {
+			"value": ""
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://azureprojectstorageacc.dfs.core.windows.net/"
 		},
@@ -31,6 +34,12 @@
 		},
 		"MySql1_properties_typeProperties_username": {
 			"value": "root"
+		},
+		"FileServer1_properties_typeProperties_host": {
+			"value": "C:\\Users\\YOGESH\\Desktop\\data"
+		},
+		"FileServer1_properties_typeProperties_userId": {
+			"value": "YOGESH"
 		},
 		"containerUri": {
 			"value": ""
