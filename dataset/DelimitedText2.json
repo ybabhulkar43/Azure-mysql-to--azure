@@ -1,0 +1,43 @@
+{
+	"name": "DelimitedText2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "FileServer1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "Yogesh_Babhulkar_Guide and tracker for modules and tasks2.xlsx"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Yogesh",
+				"type": "String"
+			},
+			{
+				"name": "I am empty ",
+				"type": "String"
+			},
+			{
+				"name": "Prop_2",
+				"type": "String"
+			},
+			{
+				"name": "now",
+				"type": "String"
+			},
+			{
+				"name": "Thanks to you",
+				"type": "String"
+			}
+		]
+	}
+}
