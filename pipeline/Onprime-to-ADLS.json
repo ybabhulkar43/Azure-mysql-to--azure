@@ -16,7 +16,15 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "MySqlSource"
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "FileServerReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
 					},
 					"sink": {
 						"type": "DelimitedTextSink",
@@ -41,7 +49,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "MySqlTable1",
+						"referenceName": "DelimitedText2",
 						"type": "DatasetReference"
 					}
 				],
@@ -51,6 +59,34 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "succss",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Copy data1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://prod-18.northcentralus.logic.azure.com:443/workflows/6695a1833d474fefafd8774fe6250dda/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=opam4bdOids8CY1vaU2_tgIEZh1uUu_54xX50orz36o",
+					"body": {
+						"value": "{\n    \"pipelineName\": \"@{pipeline().Pipeline}\"\n    \"status\": \"Succeeded\"\n    \"runId\": \"@{pipeline().RunId}\"\n    \"time\": \"@{utcNow()}\"\n\n}",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"annotations": []
